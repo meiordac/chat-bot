@@ -1,0 +1,12 @@
+{
+    "name": "Chat Bot API",
+    "description": "Chat Bot API using ML",
+    "image": "heroku/python",
+    "repository": "https://github.com/meiordac/chat-bot",
+    "keywords": ["python", "flask"],
+    "addons": ["heroku-postgresql"],
+    "env": {
+
+    },
+    "environments": {}
+}
