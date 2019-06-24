@@ -4,18 +4,23 @@ import nltk
 import numpy as np
 import random
 import string
+import pandas
+import re
 
-f = open('chatbot.txt',
-         'r', errors='ignore')
 
-raw = f.read()
-raw = raw.lower()
+df = pandas.read_csv("sample.csv")
 
 nltk.download('punkt')
 nltk.download('wordnet')
 
-sent_tokens = nltk.sent_tokenize(raw)
-word_tokens = nltk.wordpunct_tokenize(raw)
+unique_string = ''
+
+for x in df['text']:
+    unique_string += ' '.join(
+        re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", x).split())
+
+sent_tokens = nltk.sent_tokenize(unique_string)
+word_tokens = nltk.wordpunct_tokenize(unique_string)
 
 lemmer = nltk.stem.WordNetLemmatizer()
 

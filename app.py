@@ -8,8 +8,11 @@ app = Flask(__name__)
 def get_response():
     message = request.args.get('message')
     print(message)
-    response = bot.response(message)
-    return jsonify(response)
+    if message:
+        message = message.lower()
+        response = bot.response(message)
+        return jsonify(response)
+    return ''
 
 
 @app.route('/', methods=['GET'])
