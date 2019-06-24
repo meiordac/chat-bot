@@ -4,7 +4,7 @@ import bot
 app = Flask(__name__)
 
 
-@app.route('/api/bot', methods=['GET'])
+@app.route('/bot', methods=['GET'])
 def get_response():
     message = request.args.get('message')
     print(message)
